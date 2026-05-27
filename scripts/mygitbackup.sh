@@ -46,7 +46,7 @@ cp ~/printer_data/database/moonraker-sql.db ${moonraker_backup}
 
 # copy kconfig configuration master
 echo -e "\nBacking up kconfig .config ..."
-cp ~/printer_data/Happy-Hare/.config ~/printer_data/config/kconfig.conf
+cp ~/Happy-Hare/.config ~/printer_data/config/kconfig.conf
 
 # find symlinks to ignore using .gitignore 
 # find ~/printer_data/config/mmu/. -type l | sed -e s'/^\.\///g' > ~/printer_data/config/mmu/.gitignore
