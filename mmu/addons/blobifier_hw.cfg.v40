@@ -20,9 +20,9 @@ maximum_servo_angle: 180
 # switch to.
 # 
 [gcode_button bucket]
-pin: ^PG15 # The pullup ( ^ ) is important here.
+pin: ^!PA1 # The pullup ( ^ ) is important here.
 press_gcode:
-  M117 bucket installed
+  _MSG PREFIX=⏫ MSG="BLOBIFIER: Tray is installed"
 release_gcode:
-  M117 bucket removed
+  _MSG PREFIX=⏬ MSG="BLOBIFIER: Tray has been removed"
   _BLOBIFIER_COUNT_RESET
