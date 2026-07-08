@@ -481,6 +481,7 @@ CONFIG_BOARD_TYPE_MELLOW_EASY_BRD_CAN_1=y
 #     Filament sensors
 #     end of Filament sensors
 #   end of MMU Features / Additions
+CONFIG_PARAM_DISPLAY_NAME="Tradrack-0" #~DEFAULT~#
 #   _
 #   MCU connection
 # CONFIG_CHOICE_MMU_CONNECTION_TYPE_SERIAL is not set #~DEFAULT~#
@@ -667,7 +668,7 @@ CONFIG_W3=y
 #   _
 #   _Config Warnings / Errors
 #   Custom MMU selected. You will need to carefully check configuration
-#   Unknown MCU selected. You will need to configure all pins
+#   Unknown MCU board selected. You will need to configure all pins
 #   Toolhead type is 'other'. Are you sure yours is not listed?
 #   No gate homing endstop [Raw Settings/Endstops]
 #   -unused-
