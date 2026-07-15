@@ -343,6 +343,7 @@ CONFIG_PARAM_REGISTER_BUFFER_SENSORS=1 #~DEFAULT~#
 CONFIG_BOOL_CREATE_MCU_ENVIRONMENT_SENSORS=y #~DEFAULT~#
 # CONFIG_BOOL_HIDE_MCU_ENVIRONMENT_SENSORS is not set #~DEFAULT~#
 # CONFIG_MMU_HAS_HEATER is not set #~DEFAULT~#
+# CONFIG_MMU_HAS_NFC_READER is not set #~DEFAULT~#
 # CONFIG_MMU_HAS_EJECT_BUTTONS is not set #~DEFAULT~#
 CONFIG_MMU_HAS_ENCODER=y #~DEFAULT~#
 CONFIG_PARAM_ENCODER_NAME="unit0" #~DEFAULT~#
@@ -431,6 +432,7 @@ CONFIG_PARAM_GEAR_ROTATION_DISTANCE=22.64
 CONFIG_PARAM_SELECTOR_ROTATION_DISTANCE=40 #~DEFAULT~#
 # CONFIG_MMU_CUSTOM is not set
 # CONFIG_MMU_CUSTOM_TYPE_EVERYTHING is not set
+CONFIG_PARAM_DISPLAY_NAME="Tradrack-0" #~DEFAULT~#
 CONFIG_PARAM_BOARD_TYPE="Mellow EASY-BRD v1" #~DEFAULT~#
 # CONFIG_BOARD_TYPE_AFC_LITE_1_0 is not set
 CONFIG_PIN_GEAR_UART="unit0:gpio9" #~DEFAULT~#
@@ -473,22 +475,38 @@ CONFIG_BOARD_TYPE_MELLOW_EASY_BRD_CAN_1=y
 # CONFIG_BOARD_TYPE_WGB_3_0 is not set
 # CONFIG_BOARD_TYPE_OTHER is not set
 #   MMU Features / Additions
+#     _Leds
+#     _
+#     _Fans
+#     _
+#     _Espooler
+#     _
+#     _Sync Feedback Buffer
 #     Buffer config
 #       _
-#       Sensors
+#       Fitted Sensors
 #       _
 #       Tuning params (MMU_CALIBRATE_PSENSOR)
 #     end of Buffer config
 #     _
+#     _Environment Sensor
 #     _
+#     _Heater
+#     _
+#     _RFID
+#     _
+#     _Eject Buttons
+#     _
+#     _Encoder
 #     Encoder config
 #     end of Encoder config
 #     _
+#     _Filament Catchment
 #     _
+#     _Sensors
 #     Filament sensors
 #     end of Filament sensors
 #   end of MMU Features / Additions
-CONFIG_PARAM_DISPLAY_NAME="Tradrack-0" #~DEFAULT~#
 #   _
 #   MCU connection
 # CONFIG_CHOICE_MMU_CONNECTION_TYPE_SERIAL is not set #~DEFAULT~#
@@ -498,21 +516,21 @@ CONFIG_MMU_CANBUS_UUID_OTHER="0cf6c395541c"
 CONFIG_PARAM_MMU_CANBUS_UUID="0cf6c395541c" #~DEFAULT~#
 #   end of MCU connection
 #   Pins / TMC
-CONFIG_CHOICE_GEAR_TMC_2209=y #~DEFAULT~#
-# CONFIG_CHOICE_GEAR_TMC_2130 is not set #~DEFAULT~#
-# CONFIG_CHOICE_GEAR_TMC_2208 is not set #~DEFAULT~#
-# CONFIG_CHOICE_GEAR_TMC_2660 is not set #~DEFAULT~#
-# CONFIG_CHOICE_GEAR_TMC_5160 is not set #~DEFAULT~#
-# CONFIG_CHOICE_GEAR_TMC_2240 is not set #~DEFAULT~#
+CONFIG_CHOICE_GEAR_TMC2209=y #~DEFAULT~#
+# CONFIG_CHOICE_GEAR_TMC2130 is not set #~DEFAULT~#
+# CONFIG_CHOICE_GEAR_TMC2208 is not set #~DEFAULT~#
+# CONFIG_CHOICE_GEAR_TMC2660 is not set #~DEFAULT~#
+# CONFIG_CHOICE_GEAR_TMC5160 is not set #~DEFAULT~#
+# CONFIG_CHOICE_GEAR_TMC2240 is not set #~DEFAULT~#
 CONFIG_PARAM_GEAR_TMC="tmc2209" #~DEFAULT~#
 #     Gear pins
 #     end of Gear pins
-CONFIG_CHOICE_SELECTOR_TMC_2209=y #~DEFAULT~#
-# CONFIG_CHOICE_SELECTOR_TMC_2130 is not set #~DEFAULT~#
-# CONFIG_CHOICE_SELECTOR_TMC_2208 is not set #~DEFAULT~#
-# CONFIG_CHOICE_SELECTOR_TMC_2660 is not set #~DEFAULT~#
-# CONFIG_CHOICE_SELECTOR_TMC_5160 is not set #~DEFAULT~#
-# CONFIG_CHOICE_SELECTOR_TMC_2240 is not set #~DEFAULT~#
+CONFIG_CHOICE_SELECTOR_TMC2209=y #~DEFAULT~#
+# CONFIG_CHOICE_SELECTOR_TMC2130 is not set #~DEFAULT~#
+# CONFIG_CHOICE_SELECTOR_TMC2208 is not set #~DEFAULT~#
+# CONFIG_CHOICE_SELECTOR_TMC2660 is not set #~DEFAULT~#
+# CONFIG_CHOICE_SELECTOR_TMC5160 is not set #~DEFAULT~#
+# CONFIG_CHOICE_SELECTOR_TMC2240 is not set #~DEFAULT~#
 CONFIG_PARAM_SELECTOR_TMC="tmc2209" #~DEFAULT~#
 #     Selector pins
 #     end of Selector pins
@@ -528,6 +546,28 @@ CONFIG_PARAM_SELECTOR_TMC="tmc2209" #~DEFAULT~#
 #     _
 #     _Toolhead dimensions
 #   end of Toolhead sensors/settings
+#   Endstops and Bowden movement
+#     _Gate homing
+CONFIG_CHOICE_GATE_HOMING_ENDSTOP_SHARED_EXIT=y #~DEFAULT~#
+# CONFIG_CHOICE_GATE_HOMING_ENDSTOP_ENCODER is not set #~DEFAULT~#
+CONFIG_PARAM_GATE_HOMING_ENDSTOP="mmu_shared_exit" #~DEFAULT~#
+CONFIG_CHOICE_GATE_PRELOAD_ENDSTOP_DEFAULT=y #~DEFAULT~#
+CONFIG_PARAM_GATE_PRELOAD_ENDSTOP="" #~DEFAULT~#
+CONFIG_PARAM_BOWDEN_UNLOAD_HOMING_BUFFER=40 #~DEFAULT~#
+#     _
+#     _Extruder homing
+# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_COMPRESSION is not set #~DEFAULT~#
+# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_TOUCH is not set #~DEFAULT~#
+CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_ENCODER=y #~DEFAULT~#
+# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_NONE is not set #~DEFAULT~#
+CONFIG_PARAM_EXTRUDER_HOMING_ENDSTOP="encoder" #~DEFAULT~#
+CONFIG_PARAM_BOWDEN_LOAD_HOMING_BUFFER=20 #~DEFAULT~#
+CONFIG_PARAM_EXTRUDER_COLLISION_HOMING_CURRENT=30 #~DEFAULT~#
+CONFIG_PARAM_EXTRUDER_HOMING_MAX=100 #~DEFAULT~#
+# CONFIG_BOOL_EXTRUDER_FORCE_HOMING is not set #~DEFAULT~#
+CONFIG_PARAM_EXTRUDER_FORCE_HOMING=0 #~DEFAULT~#
+CONFIG_PARAM_TOOLHEAD_HOMING_MAX=40 #~DEFAULT~#
+#   end of Endstops and Bowden movement
 #   Software Options
 #     Logging
 #     end of Logging
@@ -593,7 +633,7 @@ CONFIG_PARAM_SELECTOR_TMC="tmc2209" #~DEFAULT~#
 #     Purge (_MMU_PURGE)
 #     end of Purge (_MMU_PURGE)
 #   end of Macro Variables
-#   Raw Settings
+#   Other Settings
 CONFIG_PARAM_EXTRUDER_NAME="extruder" #~DEFAULT~#
 #     Speeds
 #       _Bowden movement speeds (mm/s)
@@ -619,18 +659,6 @@ CONFIG_PARAM_SERVO_ACTIVE_DOWN=0 #~DEFAULT~#
 #     end of Selector servo
 #     Filament sensors
 #     end of Filament sensors
-#     Endstops for Bowden movement
-CONFIG_CHOICE_GATE_HOMING_ENDSTOP_SHARED_EXIT=y #~DEFAULT~#
-# CONFIG_CHOICE_GATE_HOMING_ENDSTOP_ENCODER is not set #~DEFAULT~#
-CONFIG_PARAM_GATE_HOMING_ENDSTOP="mmu_shared_exit" #~DEFAULT~#
-CONFIG_CHOICE_GATE_PRELOAD_ENDSTOP_DEFAULT=y #~DEFAULT~#
-CONFIG_PARAM_GATE_PRELOAD_ENDSTOP="" #~DEFAULT~#
-# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_COMPRESSION is not set #~DEFAULT~#
-# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_TOUCH is not set #~DEFAULT~#
-CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_ENCODER=y #~DEFAULT~#
-# CONFIG_CHOICE_EXTRUDER_HOMING_ENDSTOP_NONE is not set #~DEFAULT~#
-CONFIG_PARAM_EXTRUDER_HOMING_ENDSTOP="encoder" #~DEFAULT~#
-#     end of Endstops for Bowden movement
 #     Gate loading & parking
 #     end of Gate loading & parking
 #     MMU/Extruder sync
@@ -666,7 +694,7 @@ CONFIG_PARAM_SKIP_CAL_ROTATION_DISTANCE=1 #~DEFAULT~#
 CONFIG_PARAM_AUTOTUNE_ROTATION_DISTANCE=0 #~DEFAULT~#
 CONFIG_PARAM_SKIP_CAL_ENCODER=1 #~DEFAULT~#
 #     end of Calibration/Autotuning
-#   end of Raw Settings
+#   end of Other Settings
 #   _
 #   Paths & Services
 #   end of Paths & Services
@@ -677,7 +705,7 @@ CONFIG_W3=y
 #   Custom MMU selected. You will need to carefully check configuration
 #   Unknown MCU board selected. You will need to configure all pins
 #   Toolhead type is 'other'. Are you sure yours is not listed?
-#   No gate homing endstop [Raw Settings/Endstops]
+#   No gate homing endstop configured
 #   -unused-
 #   Leds are enabled but no MCU pin defined
 #   Fans are enabled but no MCU pin defined
