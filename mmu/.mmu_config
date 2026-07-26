@@ -716,3 +716,4 @@ CONFIG_W3=y
 #   MMU heater is enabled but heater name(s) not defined
 #   MMU environment sensor is enabled but sensor name(s) not defined
 #   Sync-feedback buffer configured but it had no sensors defined
+#   Warning: Sync-feedback buffer configured with both analog and digital inputs
